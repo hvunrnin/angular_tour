@@ -1,0 +1,8 @@
+<h2>{{hero.name | uppercase}} Details</h2>
+<!-- 문자열 바인딩(interpolation binding)에서 파이프 연산자 | 바로 뒤에 있는 uppercase 는 Angluar의 기본 파이프인 UppercasePipe를 가리킨다
+파이프는 문자열의 형식을 지정하거나, 통화 단위 변경, 날짜나 데이터가 표시되는 형식을 변경할 때 사용 -->
+<div>
+    <label for="name">Hero name: </label>
+    <input id="name" [(ngModel)]="hero.name" placeholder="name">
+</div>
+<!-- ngModel은 FormsModule에서 제공하는 디렉티브여서 FormsModule 로드 필요 -->
