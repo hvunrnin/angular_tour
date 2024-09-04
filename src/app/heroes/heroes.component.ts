@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 // import { HEROES } from '../mock-heroes';
 import { HeroService } from '../hero.service';
-import { MessageService } from '../message.service';
 
 // Angular 컴포넌트를 선언하려면 반드시 Angular 코어 라이브러리에서 Component 심볼을 로드하고 컴포넌트 클래스에 @Component 와 같이 지정
 // ng generate 명령을 실행하면 기본적으로 3개의 메타데이터 프로퍼티를 생성
@@ -42,5 +41,19 @@ export class HeroesComponent implements OnInit{
   getHeroes(): void {
     this.heroService.getHeroes()
         .subscribe(heroes => this.heroes = heroes);
+  }
+
+  add(name: string): void {
+    name = name.trim();
+    if (!name) { return; }
+    this.heroService.addHero({ name } as Hero)
+      .subscribe(hero => {
+        this.heroes.push(hero);
+      });
+  }
+
+  delete(hero: Hero): void {
+    this.heroes = this.heroes.filter(h => h !== hero);
+    this.heroService.deleteHero(hero.id).subscribe();
   }
 }
