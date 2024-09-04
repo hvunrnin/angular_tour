@@ -20,19 +20,19 @@ export class HeroesComponent implements OnInit{
   // heroes = HEROES;
   // selectedHero?: Hero;
 
-  selectedHero?: Hero;
+  // selectedHero?: Hero;
   heroes: Hero[] = [];
 
-  constructor(private heroService: HeroService, private messageService: MessageService) {}
+  constructor(private heroService: HeroService) {}
 
   ngOnInit(): void {
     this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    this.messageService.add(`HeroesComponent: Selected heri id=${hero.id}`);
-  }
+  // onSelect(hero: Hero): void {
+  //   this.selectedHero = hero;
+  //   this.messageService.add(`HeroesComponent: Selected heri id=${hero.id}`);
+  // }
 
   // 현재 동기 방식으로 동작하는데, 실제로는 서버의 응답을 기다려서 비동기로 동작해야함.
   // 비동기 동작은 콜백 함수, promise, Observable 반환하도록 처리 가능. (여기선 Observable로 처리, HttpClient.get 메소드가 observable 반환하므로 이게 자연스러움)

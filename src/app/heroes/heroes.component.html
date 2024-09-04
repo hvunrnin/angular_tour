@@ -6,7 +6,8 @@
     <input id="name" [(ngModel)]="hero.name" placeholder="name">
 </div> -->
 <!-- ngModel은 FormsModule에서 제공하는 디렉티브여서 FormsModule 로드 필요 -->
-<h2>My Heroes</h2>
+
+<!-- <h2>My Heroes</h2>
 <ul class="heroes">
   <li *ngFor="let hero of heroes">
     <button [class.selected]="hero === selectedHero" type="button" (click)="onSelect(hero)">
@@ -14,7 +15,7 @@
       <span class="name">{{hero.name}}</span>
     </button>
   </li>
-</ul>
+</ul> -->
 
 <!-- <div *ngIf="selectedHero">
   <h2>{{selectedHero.name | uppercase}} Details</h2>
@@ -24,4 +25,23 @@
     <input id="hero-name" [(ngModel)]="selectedHero.name" placeholder="name">
   </div>
 </div> -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+
+<!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail> -->
+<!-- 
+<ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <button type="button" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+        <span class="badge">{{hero.id}}</span>
+        <span class="name">{{hero.name}}</span>
+      </button>
+    </li>
+  </ul> -->
+
+  <h2>My Heroes</h2>
+  <ul class="heroes">
+    <li *ngFor="let hero of heroes">
+      <a routerLink="/detail/{{hero.id}}">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+      </a>
+    </li>
+  </ul>
